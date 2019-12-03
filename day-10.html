@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工具类</title>
+</head>
+<body>
+
+</body>
+<script>
+    //1.数组类
+    //并集
+    const arrAndSet = (arrOne,arrTwo) => {
+        return arrOne.concat(arrTwo.filter( (item) => !arrOne.includes(item)))
+    };
+    //交集
+    const arrIntersection = (arrOne,arrTwo) => {
+        return arrOne.filter( (item) => arrTwo.includes(item))
+    };
+    //差集
+    const arrDifference = (arrOne,arrTwo) => {
+        return arrOne.concat(arrTwo).filter((item) => {
+            return !arrOne.includes(v) || !arrTwo.includes(v)
+        })
+    };
+    //数组求和
+    const arrSum = (arr) => {
+        return arr.reduce((prev,cur) => {
+            return prev + cur
+        },0)
+    };
+    //数组包含
+    const arrIncludes = (arr,item) => {
+        return arr.includes(item)
+    } ;
+    //数组最大
+    const arrMax = (arr) => {
+        return  Math.max(...arr)
+    };
+    //简单数据去重
+    const arrRemoveRepeat = (arr) => {
+        return Array.from(new Set(arr))
+    };
+    //数组排序
+    const arrSort = (arr,ascendFlag = true) => {
+        return arr.sort( (a,b) => {
+            return ascendFlag ? a - b : b - a
+        })
+    };
+    //校验
+    //数字
+    const checkNum = (str) => {
+        const reg = /^\d+$/g;
+        if(reg.test(str)){
+            return true
+        }
+    };
+    //字母
+    const checkLetter = (str) => {
+        const reg = /^[a-zA-Z]+$/g;
+        if(reg.test(str)){
+            return true
+        }
+    };
+    //字母或数字
+    const checkNumOrLetter = (str) => {
+        const reg = /^[0-9a-zA-Z]+$/g;
+        if(reg.test(str)){
+            return true
+        }
+    };
+    //中文
+    const checkChinese = (str) => {
+        const reg = /^[\u4E00-\u9FA5]+$/g;
+        if(reg.test(str)){
+            return true
+        }
+    };
+    //是中文，数字或字母
+    const checkChineseNumberLetter = data => {
+        const reg = /^[a-zA-Z0-9\u4e00-\u9fa5]+$/g;
+        if (reg.test(data)) return true
+    }
+
+</script>
+</html>
